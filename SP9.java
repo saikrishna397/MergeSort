@@ -123,25 +123,23 @@ public class SP9 {
     // end of take 1 mergeSort
 
     public static void mergeSortTakeTwo(int[] A) {
-        mergeSortTakeTwo(A,0,A.length-1);
-    }
-
-    public static void mergeSortTakeTwo(int[] A, int p, int r) {
-        int T = 10;
-        int[] B = new int[A.length];
-        if (A.length < T) {
-            insertionSort(A, p, r);
-        } else {
-            if (p < r) {
-                int q = (p + r) / 2;
-                mergeSortTakeTwo(A, p, q);
-                mergeSortTakeTwo(A, q + 1, r);
-                mergeTakeTwo(A, B, p, q, r);
-            }
-        }
-    }
-
-    public static void mergeTakeTwo(int A[], int B[], int p, int q, int r){
+		int[] B = new int[A.length];
+		mergeSortTakeTwo(A,B,0,A.length);
+	}
+	
+	public static void mergeSortTakeTwo(int[] A,int[] B, int left, int n) {
+		int T = 10;
+	      if (n < T) {
+	      insertionSort(A, left, left+n-1);
+	      } else {
+          int Ln = n / 2;
+          mergeSortTakeTwo(A, B, left, Ln);
+          mergeSortTakeTwo(A, B, left+Ln, n-Ln);
+          mergeTakeTwo(A, B, left, left+Ln-1, left+n-1);
+	  }
+	}
+	
+	public static void mergeTakeTwo(int A[], int B[], int p, int q, int r){
         System.arraycopy(A, p, B, p, r-p+1);
         int i = p, j = q + 1;
         for(int k = p; k <= r; k++){
@@ -151,7 +149,7 @@ public class SP9 {
             else
                 A[k] = B[j++];
         }
-    }
+	}
 
 
     public static void mergeSortTakeThree(int A[]) {
