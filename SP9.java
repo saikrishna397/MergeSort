@@ -8,8 +8,9 @@ public class SP9 {
     public static Random random = new Random();
     public static int numTrials = 100;
     public static void main(String[] args) {
-        int n = 10000;
-        int choice = 1 + random.nextInt(4);
+        int n = 1000;
+//	int choice = 1 + random.nextInt(4);
+        int choice = 4;
         if(args.length > 0) { n = Integer.parseInt(args[0]); }
         if(args.length > 1) { choice = Integer.parseInt(args[1]); }
         int[] arr = new int[n];
@@ -43,11 +44,11 @@ public class SP9 {
                 break;
             case 4:
                 for(int i=0; i<numTrials; i++) {
-                    Shuffle.shuffle(arr);
+//			Shuffle.shuffle(array);
                     mergeSortTakeThree(arr);
                 }
-//		    for(int i: arr)
-//				System.out.print(i+" ");
+                for(int i: arr)
+                    System.out.print(i+" ");
                 break;
             default:
                 for(int i=0; i<numTrials; i++) {
