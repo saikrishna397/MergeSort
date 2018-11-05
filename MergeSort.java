@@ -91,20 +91,20 @@ public class MergeSort {
         }
     }
 
-    public static void mergeTakeThree(int A[]) {
+    public static void mergeSortTakeThree(int A[]) {
         int B[] = new int[A.length];
         System.arraycopy(A, 0, B, 0, A.length);
         mergeSortTakeThree(A, B, 0, A.length);
     }
 
-    public static void mergeSortTakeThree(int A[], int B[], int left, int n) {
+    public static void mergeTakeThree(int A[], int B[], int left, int n) {
         int T = 10;
         if (n < T) {
             insertionSort(A, left, left + n - 1);
         } else {
             int Ln = n / 2;
-            mergeSortTakeThree(B, A, left, Ln);
-            mergeSortTakeThree(B, A, left + Ln, n - Ln);
+            mergeTakeThree(B, A, left, Ln);
+            mergeTakeThree(B, A, left + Ln, n - Ln);
             merge(A, B, left, left + Ln - 1, left + n - 1);
         }
     }
