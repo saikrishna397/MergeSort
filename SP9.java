@@ -23,28 +23,28 @@ public class SP9 {
                 Shuffle.shuffle(arr);
                 numTrials = 1;
                 insertionSort(arr);
-//		    for(int i: arr)
-//				System.out.print(i+" ");
+		    for(int i: arr)
+				System.out.print(i+" ");
                 break;
             case 2:
                 for(int i=0; i<numTrials; i++) {
                     Shuffle.shuffle(arr);
                     mergeSortTakeOne(arr);
                 }
-//		    for(int i: arr)
-//				System.out.print(i+" ");
+		    for(int i: arr)
+				System.out.print(i+" ");
                 break;  // etc
             case 3:
                 for(int i=0; i<numTrials; i++) {
                     Shuffle.shuffle(arr);
                     mergeSortTakeTwo(arr);
                 }
-//		    for(int i: arr)
-//				System.out.print(i+" ");
+		    for(int i: arr)
+				System.out.print(i+" ");
                 break;
             case 4:
                 for(int i=0; i<numTrials; i++) {
-//			Shuffle.shuffle(array);
+                	Shuffle.shuffle(arr);
                     mergeSortTakeThree(arr);
                 }
                 for(int i: arr)
@@ -164,9 +164,9 @@ public class SP9 {
             insertionSort(A, left, left + n - 1);
         } else {
             int Ln = n / 2;
-            mergeSortTakeThree(B, A, left, Ln);
-            mergeSortTakeThree(B, A, left + Ln, n - Ln);
-            mergeTakeThree(B, A, left, left + Ln - 1, left + n - 1);
+            mergeSortTakeThree(A,B, left, Ln);
+            mergeSortTakeThree(A,B, left + Ln, n - Ln);
+            mergeTakeThree(B,A, left, left + Ln - 1, left + n - 1);
         }
     }
 
