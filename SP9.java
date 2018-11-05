@@ -1,7 +1,6 @@
 /** Sample starter code for SP9.
  *  @author
  */
-
 package sxs169430;
 import java.util.Random;
 
@@ -9,7 +8,8 @@ public class SP9 {
     public static Random random = new Random();
     public static int numTrials = 100;
     public static void main(String[] args) {
-        int n = 10;  int choice = 1 + random.nextInt(4);
+        int n = 10000;
+        int choice = 1 + random.nextInt(4);
         if(args.length > 0) { n = Integer.parseInt(args[0]); }
         if(args.length > 1) { choice = Integer.parseInt(args[1]); }
         int[] arr = new int[n];
@@ -167,7 +167,7 @@ public class SP9 {
             int Ln = n / 2;
             mergeSortTakeThree(B, A, left, Ln);
             mergeSortTakeThree(B, A, left + Ln, n - Ln);
-            mergeTakeThree(A, B, left, left + Ln - 1, left + n - 1);
+            mergeTakeThree(B, A, left, left + Ln - 1, left + n - 1);
         }
     }
 
